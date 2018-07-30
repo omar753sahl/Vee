@@ -1,0 +1,103 @@
+ext.deps = [:]
+
+def versions = [:]
+versions.support = "27.1.1"
+versions.constraintlayout = "1.1.2"
+versions.dex = "1.0.0"
+versions.retrofit = "2.4.0"
+versions.okhttp = "3.11.0"
+versions.rxjava2 = "2.1.16"
+versions.rxandroid = "2.0.2"
+versions.dagger2 = "2.16"
+versions.aac = "1.1.1"
+versions.room = "1.1.1"
+versions.paging = "1.0.0"
+versions.circleimageview = "2.2.0"
+versions.glide = "4.7.1"
+versions.firebase = "16.0.1"
+versions.playservicesauth = "15.0.1"
+versions.rxbinding = "2.1.1"
+
+def deps = [:]
+
+def support = [:]
+support.design = "com.android.support:design:$versions.support"
+support.appcompat = "com.android.support:appcompat-v7:$versions.support"
+support.mutlidex = "com.android.support:multidex:$versions.dex"
+support.annotations = "com.android.support:support-annotations:$versions.support"
+support.constraintlayout = "com.android.support.constraint:constraint-layout:$versions.constraintlayout"
+deps.support = support
+
+def aac = [:]
+aac.core = "android.arch.lifecycle:extensions:$versions.aac"
+aac.compiler = "android.arch.lifecycle:compiler:$versions.aac"
+aac.testing = "android.arch.core:core-testing:$versions.aac"
+deps.aac = aac
+
+def room = [:]
+room.runtime = "android.arch.persistence.room:runtime:$versions.room"
+room.rxjava2 = "android.arch.persistence.room:rxjava2:$versions.room"
+room.testing = "android.arch.persistence.room:testing:$versions.room"
+room.compiler = "android.arch.persistence.room:compiler:$versions.room"
+deps.room = room
+
+def paging = [:]
+paging.runtime = "android.arch.paging:runtime:$versions.paging"
+paging.compiler = "android.arch.paging:common:$versions.paging"
+paging.rxjava2 = "android.arch.paging:rxjava2:1.0.0-rc1"
+deps.paging = paging
+
+def retrofit = [:]
+retrofit.core = "com.squareup.retrofit2:retrofit:$versions.retrofit"
+retrofit.gson = "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+retrofit.rxjava2 = "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit"
+deps.retrofit = retrofit
+
+deps.okhttp = "com.squareup.okhttp3:okhttp:$versions.okhttp"
+
+def rxjava2 = [:]
+rxjava2.core = "io.reactivex.rxjava2:rxjava:$versions.rxjava2"
+rxjava2.android = "io.reactivex.rxjava2:rxandroid:$versions.rxandroid"
+deps.rxjava2 = rxjava2
+
+deps.rxbinding = "com.jakewharton.rxbinding2:rxbinding:$versions.rxbinding"
+
+def dagger2 = [:]
+dagger2.core = "com.google.dagger:dagger:$versions.dagger2"
+dagger2.compiler = "com.google.dagger:dagger-compiler:$versions.dagger2"
+dagger2.android = "com.google.dagger:dagger-android:$versions.dagger2"
+dagger2.androidSupport = "com.google.dagger:dagger-android-support:$versions.dagger2"
+dagger2.androidSupportCompiler = "com.google.dagger:dagger-android-processor:$versions.dagger2"
+deps.dagger2 = dagger2
+
+def glide = [:]
+glide.core = "com.github.bumptech.glide:glide:$versions.glide"
+glide.compiler = "com.github.bumptech.glide:compiler:$versions.glide"
+deps.glide = glide
+
+def firebase = [:]
+firebase.core = "com.google.firebase:firebase-core:$versions.firebase"
+firebase.auth = "com.google.firebase:firebase-auth:$versions.firebase"
+firebase.firestore = "com.google.firebase:firebase-firestore:17.0.3"
+firebase.storage = "com.google.firebase:firebase-storage:$versions.firebase"
+firebase.mlkit = "com.google.firebase:firebase-ml-vision:16.0.0"
+deps.firebase = firebase
+
+def playservices = [:]
+playservices.auth = "com.google.android.gms:play-services-auth:$versions.playservicesauth"
+deps.playservices = playservices
+
+def butterknife = [:]
+butterknife.core = 'com.jakewharton:butterknife:8.8.1'
+butterknife.compiler = 'com.jakewharton:butterknife-compiler:8.8.1'
+deps.butterknife = butterknife
+
+deps.circleimageview = "de.hdodenhof:circleimageview:$versions.circleimageview"
+deps.timber = "com.jakewharton.timber:timber:4.7.1"
+deps.knife = 'com.github.mthli:Knife:v1.1'
+deps.htmltv = 'org.sufficientlysecure:html-textview:3.6'
+deps.richtv = "io.square1:richtext:6.0.25"
+deps.picasso = 'com.squareup.picasso:picasso:2.71828'
+deps.stetho = 'com.facebook.stetho:stetho:1.5.0'
+
+ext.deps = deps

@@ -1,0 +1,103 @@
+apply plugin: 'com.android.application'
+
+buildscript {
+    apply from: '../deps.gradle'
+}
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.os.vee"
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation(
+            deps.support.appcompat,
+            deps.support.design,
+            deps.support.constraintlayout,
+            deps.support.annotations,
+            deps.support.mutlidex,
+
+            deps.aac.core,
+
+            deps.room.runtime,
+            deps.room.rxjava2,
+
+            deps.retrofit.core,
+            deps.retrofit.gson,
+            deps.retrofit.rxjava2,
+
+            deps.okhttp,
+
+            deps.rxjava2.core,
+            deps.rxjava2.android,
+
+            deps.rxbinding,
+
+            deps.dagger2.core,
+            deps.dagger2.android,
+            deps.dagger2.androidSupport,
+
+            deps.glide.core,
+
+            deps.firebase.core,
+            deps.firebase.auth,
+            deps.firebase.firestore,
+
+            deps.playservices.auth,
+
+            deps.timber,
+
+            deps.knife,
+
+            deps.richtv,
+
+            deps.butterknife.core,
+
+            deps.circleimageview,
+
+            deps.stetho,
+    )
+
+    annotationProcessor(
+            deps.aac.compiler,
+            deps.room.compiler,
+            deps.dagger2.compiler,
+            deps.dagger2.androidSupportCompiler,
+            deps.glide.compiler,
+            deps.butterknife.compiler,
+    )
+
+    testImplementation 'junit:junit:4.12'
+
+    androidTestImplementation(
+            'com.android.support:support-annotations:27.1.1',
+            'com.android.support.test:runner:1.0.2',
+            'com.android.support.test:rules:1.0.2',
+            'com.android.support.test.espresso:espresso-core:3.0.2',
+    )
+}
+apply plugin: 'com.google.gms.google-services'

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.text.Html" />
+
+        <variable
+            name="note"
+            type="com.os.vee.data.notes.Note" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@{note.title}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:fontFamily="@font/lato_regular"
+                tools:text="This summer break" />
+
+            <ImageView
+                android:id="@+id/actionMenuButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                app:srcCompat="@drawable/ic_more_vert" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:date="@{note.timestamp}"
+            app:fontFamily="@font/lato_bold"
+            tools:text="01 July 2018" />
+
+        <io.square1.richtextlib.ui.RichContentView
+            android:id="@+id/richTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:maxLines="5"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:fontFamily="@font/lato_light"
+            app:html2="@{note.content}"
+            tools:text="Android ND (deadline August 10th) \nOmar Al-Tamimi app (important) (he haven't contacted me since the last time)\nDart &amp; Flutter \nC# &amp; Unity (maybe you need to reconsider this)" />
+    </LinearLayout>
+</layout>

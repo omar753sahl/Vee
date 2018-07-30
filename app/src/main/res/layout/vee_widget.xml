@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/colorAccent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="16dp"
+        android:background="@color/colorPrimary" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:gravity="center"
+        android:text="@string/add_a_note"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Display1"
+        android:textColor="@color/colorPrimary" />
+
+    <ImageView
+        android:id="@+id/widgetAddNoteFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/circle_button_background"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="@drawable/widget_button_ripple"
+        android:padding="16dp"
+        android:src="@drawable/ic_edit_widget" />
+</LinearLayout>

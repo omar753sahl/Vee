@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">Vee</string>
+    <string name="title_activity_home">Vee</string>
+
+    <string name="title_notes">Notes</string>
+    <string name="title_profile">Profile</string>
+
+    <string name="login_message">Login to your VEE account</string>
+    <string name="signup_message">Join VEE</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_name">Full Name</string>
+    <string name="hint_password">Password</string>
+    <string name="login_label">Login</string>
+    <string name="signup_label">Sign up</string>
+
+    <string name="invalid_email_error">Enter a valid email</string>
+    <string name="invalid_name_error">Enter your name</string>
+    <string name="invalid_password_confirmation_error">Passwords don\'t match</string>
+    <string name="invalid_password_error">Use %d characters or more for your password</string>
+
+    <string name="error_user_not_found">No user found for this email</string>
+    <string name="error_user_disabled">This account has been disabled</string>
+    <string name="error_user_token_expired">Your account credentials have been changed</string>
+    <string name="error_login_unknown_error">Error logging you in, Try again</string>
+    <string name="error_signup_unknown_error">Error creating a new account, Try again</string>
+    <string name="error_email_already_in_use">Email is already in use by a different account</string>
+    <string name="error_invalid_email">Invalid email</string>
+    <string name="error_wrong_password">You have entered a wrong password</string>
+    <string name="error_account_exists_with_different_credential">This email address is already in use by another account</string>
+    <string name="error_generic">An error occurred, Try again</string>
+    <string name="create_account_label">create a new account</string>
+
+    <string name="no_notes_message">You have <b>no</b> notes!</string>
+    <string name="activity_add_note_title">Add Note</string>
+
+    <!-- Editor -->
+    <string name="toast_bold">Bold</string>
+    <string name="toast_italic">Italic</string>
+    <string name="toast_underline">Underline</string>
+    <string name="toast_strikethrough">Strikethrough</string>
+    <string name="toast_bullet">Bullet</string>
+    <string name="toast_quote">Quote</string>
+    <string name="toast_insert_link">Insert link</string>
+    <string name="toast_format_clear">Format clear</string>
+    <string name="dialog_button_cancel">Cancel</string>
+    <string name="dialog_button_ok">OK</string>
+    <string name="link_dialog_title">Insert link</string>
+    <string name="link_dialog_edit_hint">http(s)://example.com</string>
+    <string name="note_editor_hint"><i>Start typing your note...</i></string>
+    <string name="note_title_hint"><i>Title</i></string>
+    <string name="error_saving_note">Error saving your note, Try again</string>
+    <string name="note_saved">Note saved</string>
+
+    <string name="logout">Logout</string>
+    <string name="error_updating_profile">Error saving profile updates</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_delete">Delete</string>
+    <string name="add_widget">Add widget</string>
+    <string name="add_a_note">Add a note!</string>
+    <string name="login_background">Login Background</string>
+    <string name="vee_logo">Vee Logo</string>
+    <string name="signup_background">Signup Background</string>
+    <string name="no_notes_icon">No notes icon</string>
+    <string name="your_name">Your name</string>
+</resources>
