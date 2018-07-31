@@ -5,6 +5,14 @@ buildscript {
 }
 
 android {
+    signingConfigs {
+        debug {
+            keyAlias 'veedebug'
+            keyPassword '~$vee$~'
+            storeFile file('../vee.jks')
+            storePassword '~$vee$~'
+        }
+    }
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.os.vee"
@@ -32,8 +40,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation(
             deps.support.appcompat,
             deps.support.design,
@@ -81,7 +88,6 @@ dependencies {
 
             deps.stetho,
     )
-
     annotationProcessor(
             deps.aac.compiler,
             deps.room.compiler,
@@ -90,9 +96,7 @@ dependencies {
             deps.glide.compiler,
             deps.butterknife.compiler,
     )
-
     testImplementation 'junit:junit:4.12'
-
     androidTestImplementation(
             'com.android.support:support-annotations:27.1.1',
             'com.android.support.test:runner:1.0.2',

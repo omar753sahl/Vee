@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1067630176537",
+    "firebase_url": "https://vee-app-4774.firebaseio.com",
+    "project_id": "vee-app-4774",
+    "storage_bucket": "vee-app-4774.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067630176537:android:8800c03458f679f0",
+        "android_client_info": {
+          "package_name": "com.os.vee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1067630176537-0i9sfpnf6i8hom1jj4ibdhsfue7fqirn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.os.vee",
+            "certificate_hash": "8338ea6ac7cdbab9f16d40d58feaa4b9ecaee5ae"
+          }
+        },
+        {
+          "client_id": "1067630176537-75qkta4lu9m79srkvet6e7483afqn5fj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLV3KwFkjBrmTMb-ngB7n6jvx93llqva4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1067630176537-75qkta4lu9m79srkvet6e7483afqn5fj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
