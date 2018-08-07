@@ -108,8 +108,8 @@ public class LoginActivity extends DaggerAppCompatActivity {
                     GoogleSignInAccount account = task.getResult(ApiException.class);
                     firebaseAuthWithGoogle(account);
                 } catch (ApiException e) {
-                    Timber.e("Error signing in with google, %s", e);
-                    Snackbar.make(binding.getRoot(), "Error logging in with Google", Snackbar.LENGTH_LONG).show();
+                    Timber.e(e, "Error signing in with google");
+                    Snackbar.make(binding.getRoot(), R.string.google_login_error, Snackbar.LENGTH_LONG).show();
                 }
             }
         }
@@ -125,7 +125,7 @@ public class LoginActivity extends DaggerAppCompatActivity {
                 binding.setLoading(false);
             } else if (resource instanceof ResourceWrapper.Error) {
                 Throwable exception = ((ResourceWrapper.Error<FirebaseUser>) resource).throwable;
-                Timber.e("Error authenticating with google, %s", exception);
+                Timber.e(exception, "Error authenticating with google");
                 binding.setLoading(false);
 
                 String message = getString(R.string.error_login_unknown_error);
@@ -148,7 +148,7 @@ public class LoginActivity extends DaggerAppCompatActivity {
                         binding.setLoading(false);
                     } else if (resource instanceof ResourceWrapper.Error) {
                         Throwable exception = ((ResourceWrapper.Error<FirebaseUser>) resource).throwable;
-                        Timber.e("Error authenticating with email, %s", exception);
+                        Timber.e(exception, "Error authenticating with email");
                         binding.setLoading(false);
 
                         String message = getString(R.string.error_login_unknown_error);

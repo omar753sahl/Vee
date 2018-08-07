@@ -26,8 +26,8 @@
             android:theme="@style/LoginTheme" />
         <activity
             android:name="com.os.vee.ui.home.HomeActivity"
-            android:launchMode="singleTask"
             android:label="@string/title_activity_home"
+            android:launchMode="singleTask"
             android:theme="@style/HomeTheme" />
         <activity
             android:name="com.os.vee.ui.auth.SignUpActivity"
@@ -48,6 +48,7 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/vee_widget_info" />
         </receiver>
+
     </application>
 
 </manifest>

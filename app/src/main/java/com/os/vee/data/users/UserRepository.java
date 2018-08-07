@@ -44,7 +44,7 @@ public class UserRepository implements FirebaseAuth.AuthStateListener {
                 Timber.d("signInWithGoogle:success");
                 liveData.setValue(new ResourceWrapper.Success(auth.getCurrentUser()));
             } else {
-                Timber.e("signInWithCredential:failure, %s", task.getException());
+                Timber.e(task.getException(), "signInWithCredential:failure");
                 liveData.setValue(new ResourceWrapper.Error(task.getException()));
             }
         });
@@ -61,7 +61,7 @@ public class UserRepository implements FirebaseAuth.AuthStateListener {
                 Timber.d("signInWithEmail:success");
                 liveData.setValue(new ResourceWrapper.Success(auth.getCurrentUser()));
             } else {
-                Timber.e("signInWithEmail:failure, %s", task.getException());
+                Timber.e(task.getException(), "signInWithEmail:failure");
                 liveData.setValue(new ResourceWrapper.Error(task.getException()));
             }
         });
@@ -83,7 +83,7 @@ public class UserRepository implements FirebaseAuth.AuthStateListener {
                 }
 
             } else {
-                Timber.e("signUpWithEmail:failure, %s", task.getException());
+                Timber.e(task.getException(), "signUpWithEmail:failure");
                 liveData.setValue(new ResourceWrapper.Error(task.getException()));
             }
         });
@@ -105,7 +105,7 @@ public class UserRepository implements FirebaseAuth.AuthStateListener {
                     liveData.setValue(new ResourceWrapper.Success<>(v));
                 })
                 .addOnFailureListener(e -> {
-                    Timber.e(e, "userPorfileUpdate:failure");
+                    Timber.e(e, "userProfileUpdate:failure");
                     liveData.setValue(new ResourceWrapper.Error(e));
                 });
 

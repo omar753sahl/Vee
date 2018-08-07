@@ -93,9 +93,7 @@ public class ProfileFragment extends DaggerFragment {
                     disableEditing();
             }
         }, () -> {
-        }, (e, errorCode, errorMessage) -> {
-            Timber.e(e, "Unexpected error during state transitions!");
-        }));
+        }, (e, errorCode, errorMessage) -> Timber.e(e, "Unexpected error during state transitions!")));
     }
 
     private void enableEditing() {
@@ -105,9 +103,7 @@ public class ProfileFragment extends DaggerFragment {
                         .map(name -> !TextUtils.isEmpty(name))
                         .toFlowable(BackpressureStrategy.LATEST)
                         .distinctUntilChanged()
-                        .subscribe(valid -> {
-                            editProfileFab.setEnabled(valid);
-                        })
+                        .subscribe(valid -> editProfileFab.setEnabled(valid))
         );
 
         userDisplayNameInput.setEnabled(true);

@@ -21,8 +21,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="28dp"
                 android:layout_gravity="center"
+                android:contentDescription="@string/vee_logo"
                 app:srcCompat="@drawable/vee_logo_vector" />
         </android.support.v7.widget.Toolbar>
+
+        <FrameLayout
+            android:id="@+id/network_status_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_red_dark"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="@string/no_internet_connection"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="@color/white" />
+        </FrameLayout>
     </android.support.design.widget.AppBarLayout>
 
     <LinearLayout

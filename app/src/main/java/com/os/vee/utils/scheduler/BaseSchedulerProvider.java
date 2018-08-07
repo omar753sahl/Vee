@@ -4,9 +4,9 @@ import io.reactivex.Scheduler;
 
 public interface BaseSchedulerProvider {
 
-    public Scheduler computation();
+    Scheduler computation();
 
-    public Scheduler io();
+    Scheduler io();
 
-    public Scheduler main();
+    Scheduler main();
 }

@@ -62,4 +62,14 @@
     <string name="signup_background">Signup Background</string>
     <string name="no_notes_icon">No notes icon</string>
     <string name="your_name">Your name</string>
+    <string name="google_login_error">Error logging in with Google</string>
+    <string name="error_loading_notes">Couldn\'t load your notes, Try again</string>
+    <string name="note_deleted">Note Deleted</string>
+    <string name="error_deleting_note">Couldn\'t delete this note</string>
+    <string name="note_menu">Note Menu</string>
+    <string name="new_note_widget_button_cd">New Note Button</string>
+    <string name="save">Save</string>
+    <string name="new_note_cd">New Note Button</string>
+    <string name="edit_profile_button_cd">Edit Profile Button</string>
+    <string name="no_internet_connection">No internet connection</string>
 </resources>

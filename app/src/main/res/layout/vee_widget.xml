@@ -27,6 +27,7 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/circle_button_background"
         android:clickable="true"
+        android:contentDescription="@string/new_note_widget_button_cd"
         android:focusable="true"
         android:foreground="@drawable/widget_button_ripple"
         android:padding="16dp"

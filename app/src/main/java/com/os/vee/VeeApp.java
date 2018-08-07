@@ -1,6 +1,5 @@
 package com.os.vee;
 
-import android.app.Activity;
 import android.content.Context;
 import android.support.multidex.MultiDex;
 
@@ -17,8 +16,6 @@ import timber.log.Timber;
  * Created by Omar on 13-Jul-18 11:54 PM.
  */
 public class VeeApp extends DaggerApplication implements HasActivityInjector {
-
-    private AndroidInjector<Activity> activityInjector;
 
     @Override
     public void onCreate() {

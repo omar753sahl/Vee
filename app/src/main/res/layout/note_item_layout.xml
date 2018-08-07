@@ -37,6 +37,7 @@
                 tools:text="This summer break" />
 
             <ImageView
+                android:contentDescription="@string/note_menu"
                 android:id="@+id/actionMenuButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

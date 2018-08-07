@@ -5,19 +5,34 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.view.View;
+import android.widget.FrameLayout;
 
 import com.os.vee.base.BaseActivity;
 import com.os.vee.data.notes.Note;
 import com.os.vee.ui.home.fragment.NotesFragment;
 import com.os.vee.ui.home.fragment.ProfileFragment;
 import com.os.vee.ui.note.NoteActivity;
+import com.os.vee.utils.network.NetworkMonitor;
 import com.os.vento.R;
+
+import javax.inject.Inject;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import timber.log.Timber;
 
 public class HomeActivity extends BaseActivity implements NotesFragment.OnNoteSelectedListener {
 
     private final String SELECTED_TAB = "SELECTED_TAB";
     private String NOTES_FRAGMENT_TAG = NotesFragment.class.getName();
     private String PROFILE_FRAGMENT_TAG = ProfileFragment.class.getName();
+
+    @Inject
+    NetworkMonitor networkMonitor;
+
+    @BindView(R.id.network_status_bar)
+    FrameLayout networkBar;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = item -> {
         switch (item.getItemId()) {
@@ -63,6 +78,13 @@ public class HomeActivity extends BaseActivity implements NotesFragment.OnNoteSe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        ButterKnife.bind(this);
+
+        networkMonitor.monitorNetwork();
+        networkMonitor.addListener(isConnected -> {
+            Timber.d("isConnected=%s", isConnected);
+            networkBar.setVisibility(isConnected ? View.GONE : View.VISIBLE);
+        });
 
         navigation = findViewById(R.id.navigation);
 
@@ -88,5 +110,11 @@ public class HomeActivity extends BaseActivity implements NotesFragment.OnNoteSe
     @Override
     public void onNoteSelected(Note note) {
         startActivity(NoteActivity.createIntent(this, note));
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        networkMonitor.onDestroy();
     }
 }

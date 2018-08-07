@@ -30,7 +30,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
 )
 public interface AppComponent extends AndroidInjector<DaggerApplication> {
 
-    public void inject(VeeApp app);
+    void inject(VeeApp app);
 
     @Component.Builder
     interface Builder {

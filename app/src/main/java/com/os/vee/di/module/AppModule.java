@@ -31,7 +31,7 @@ public class AppModule {
 
     @Provides
     @Singleton
-    public FirebaseFirestore provideFirebstore() {
+    public FirebaseFirestore provideFirestore() {
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
         firestore.setFirestoreSettings(new FirebaseFirestoreSettings.Builder()
                 .setPersistenceEnabled(true)

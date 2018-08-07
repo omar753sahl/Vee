@@ -4,6 +4,7 @@ import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -35,6 +36,8 @@ import timber.log.Timber;
 
 public class NotesFragment extends DaggerFragment implements NotesAdapter.NoteActionListener {
 
+    private static final String LIST_STATE_KEY = "notesList.state";
+
     @Inject
     ViewModelProvider.Factory viewModelFactory;
     private HomeViewModel viewModel;
@@ -53,6 +56,8 @@ public class NotesFragment extends DaggerFragment implements NotesAdapter.NoteAc
 
     @BindView(R.id.addNoteFab)
     FloatingActionButton addNoteFab;
+
+    private Bundle listState;
 
     public NotesFragment() { }
 
@@ -80,6 +85,25 @@ public class NotesFragment extends DaggerFragment implements NotesAdapter.NoteAc
             if (user != null)
                 loadUserNotes(user.getUid());
         });
+
+        if (savedInstanceState != null) {
+            listState = savedInstanceState.getParcelable(LIST_STATE_KEY);
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable(LIST_STATE_KEY, notesList.getLayoutManager().onSaveInstanceState());
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        if (savedInstanceState != null) {
+            listState = savedInstanceState.getParcelable(LIST_STATE_KEY);
+        }
     }
 
     private void loadUserNotes(String uid) {
@@ -90,12 +114,19 @@ public class NotesFragment extends DaggerFragment implements NotesAdapter.NoteAc
                     progressBar.setVisibility(View.GONE);
                     setEmptyViewState(notes.size() == 0);
                     notesAdapter.updateNotes(notes);
+
+                    if (listState != null) {
+                        Timber.d("Restoring list position");
+                        notesList.getLayoutManager().onRestoreInstanceState(listState);
+                    } else {
+                        Timber.d("List state is null!!");
+                    }
                 }, () -> {
                     progressBar.setVisibility(View.VISIBLE);
                 }, (e, errorCode, errorMessage) -> {
                     progressBar.setVisibility(View.GONE);
                     Timber.e(e, "Error loading notes");
-                    Snackbar.make(notesList, "Couldn't load your notes, Try again", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(notesList, R.string.error_loading_notes, Snackbar.LENGTH_SHORT).show();
                 }));
     }
 
@@ -134,11 +165,11 @@ public class NotesFragment extends DaggerFragment implements NotesAdapter.NoteAc
             case R.id.action_delete: {
                 viewModel.deleteNote(note)
                         .observe(this, new ResourceObserver<>(result -> {
-                            Toast.makeText(getActivity(), "Note Deleted", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), R.string.note_deleted, Toast.LENGTH_SHORT).show();
                         }, () -> {
                         }, (e, errorCode, errorMessage) -> {
                             Timber.e(e, "Error deleting note");
-                            Toast.makeText(getActivity(), "Couldn't delete this note", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), R.string.error_deleting_note, Toast.LENGTH_SHORT).show();
                         }));
                 break;
             }

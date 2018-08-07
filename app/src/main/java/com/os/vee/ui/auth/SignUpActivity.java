@@ -89,7 +89,7 @@ public class SignUpActivity extends DaggerAppCompatActivity {
                         finish();
                     } else if (resource instanceof ResourceWrapper.Error) {
                         Throwable exception = ((ResourceWrapper.Error<FirebaseUser>) resource).throwable;
-                        Timber.e("Error creating account, %s", exception);
+                        Timber.e(exception, "Error creating account");
                         binding.setLoading(false);
 
                         String message = getString(R.string.error_signup_unknown_error);

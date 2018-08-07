@@ -6,7 +6,7 @@ buildscript {
 
 android {
     signingConfigs {
-        debug {
+        release {
             keyAlias 'veedebug'
             keyPassword '~$vee$~'
             storeFile file('../vee.jks')
@@ -28,6 +28,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            signingConfig signingConfigs.release
         }
     }
     dataBinding {
@@ -52,12 +56,6 @@ dependencies {
 
             deps.room.runtime,
             deps.room.rxjava2,
-
-            deps.retrofit.core,
-            deps.retrofit.gson,
-            deps.retrofit.rxjava2,
-
-            deps.okhttp,
 
             deps.rxjava2.core,
             deps.rxjava2.android,
